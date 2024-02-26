@@ -1,11 +1,12 @@
 from pprint import pprint
 import os
-
+from dotenv import load_dotenv
 from flask import Flask, render_template, request
 import requests
 
 app = Flask(__name__)
-api_key = 'eab14b134c19ebda9ad67fa887f2e4fe'
+load_dotenv()
+api_key = os.environ.get('WEATHER_API_KEY')
 
 @app.route('/')
 def home():
